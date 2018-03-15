@@ -85,7 +85,7 @@ def convert_mth_strings ( mth_string ):
 #### VARIABLES 1.0
 
 entity_id = "NFTRXR_ELHNFT_gov"
-url = "http://www.elht.nhs.uk/Expenditure_over_25000.htm"
+url = "http://www.elht.nhs.uk/about-us/Expenditure_over_25000.htm"
 errors = 0
 data = []
 
@@ -99,7 +99,7 @@ soup = BeautifulSoup(html, 'lxml')
 
 #### SCRAPE DATA
 
-links = soup.find_all('a')
+links = soup.find_all('a', href=True)
 for link in links:
     if '.csv' in link['href']:
         url = 'http://www.elht.nhs.uk'+link['href']
